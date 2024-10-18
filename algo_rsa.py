@@ -1,10 +1,18 @@
 import random
-from sympy import isprime
+
+def premier(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
 
 def generate_prime_above(minimum):
     while True:
         num = random.randint(minimum + 1, 1000)
-        if isprime(num):
+        if premier(num):
             return num
 
 def extended_gcd(a, b):
